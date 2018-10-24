@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title></title>
+	<script src="js/vue.min.js"></script>
+
+
+	</script>
+</head>
+<body>
+	<div id="app" >
+		{{message}}
+		<p v-html="name"></p>
+		<p>{{age}}</p>
+
+		<p v-if="isShow">动态创建和删除</p>
+		<p v-show="isShow">动态显示和隐藏</p>  
+		
+		<!-- 时间绑定 -->
+		<!-- <button v-on:click="handleClick">click</button> -->
+		<!-- v-on: 简写 -->
+		<button @click="handleClick">click</button>
+
+	    <!-- <p v-bind:class="isShow?'aaa':'bbb'" ></p> -->
+		<!-- v-bind 简写 -->
+		<p :class="isShow?'aaa':'bbb'" ></p>
+
+	</div>
+	<!-- <script src="js/index.js"></script> -->
+	<script type="text/javascript">
+		var pdd = new Vue({
+			el:"#app",
+			data:{
+				message:'Hello',
+				age:18,
+				name:"<b>xiaoming</b>",
+				isShow:true
+			},
+			//定义方法
+			methods:{
+				handleClick:function(){
+					console.log(11);
+					//访问改变属性
+					this.message='nihao';
+					this.isShow=false;
+				}
+			}
+		})
+	</script>
+</body>
+</html>
