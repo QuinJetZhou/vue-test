@@ -8,14 +8,13 @@
 	<title></title>
 	<script src="js/vue.min.js"></script>
 
-
-	</script>
 	<!-- 加油 -->
 </head>
 <body>
 	<div id="app" >
 		{{message}}
 		<p v-html="name"></p>
+		<p v-text="name"></p>
 		<p>{{age}}</p>
 
 		<p v-if="isShow">动态创建和删除</p>
@@ -31,7 +30,7 @@
 		<p :class="isShow?'aaa':'bbb'" ></p>
 
 	</div>
-	<!-- <script src="js/index.js"></script> -->
+
 	<script type="text/javascript">
 		var pdd = new Vue({
 			el:"#app",
