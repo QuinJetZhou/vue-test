@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Examples</title>
+    <script src="js/vue.js"></script>
+    
+</head>
+<body>
+    <div id="box">
+        <p>单价：<input type="text" v-model="price"></p>
+
+        <p>数量：<input type="text" v-model="number"></p>
+        <p>总额：<span>{{sum}}</span></p>
+        <p>（计算属性）总额：<span>{{computedsum}}</span></p>
+    </div>
+    
+    <script type="text/javascript">
+        
+        var vm = new Vue({
+            el:"#box",
+
+            data:{
+                name:"xiaoming",
+                price:100,
+                number:0 ,
+                sum:0
+            },
+            
+            // 监听
+            watch:{
+                price:function(newvalue){
+                    // console.log(newvalue);
+                    this.sum = newvalue*this.number
+                },
+                number:function(newvalue){
+                    this.sum = newvalue*this.price
+                }
+            },
+            //计算属性默认只有getter，没有setter
+            computed:{
+                computedsum:function(){
+                    return this.number*this.price
+                }
+            }
+        })
+    </script>
+</body>
+</html>
