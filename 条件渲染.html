@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Examples</title>
+    <script src="js/vue.js"></script>
+    
+</head>
+<body>
+    <div id="box">
+        <p v-if="isCreated">我是11111</p>
+        <p v-else>我是22222</p>
+
+        <div v-if="isCreated" >hello</div>
+
+        <template v-if="isCreated">
+          <div>hello</div>
+          <div>hello</div>
+          <div>hello</div>
+          <div>hello</div>
+        </template>
+        
+        <p v-show="isShow">我是动态的隐藏和显示</p>
+    </div>
+    
+    <script type="text/javascript">
+        
+        var vm = new Vue({
+            el:"#box",
+
+            data:{
+               name:"xiaoming",
+               isCreated:true,
+               isShow:false
+            }
+            
+          
+        })
+    </script>
+</body>
+</html>
